@@ -57,9 +57,12 @@ class DeliveryStepService:
         return results
     
     def _select_delivery_steps(self, delivery_code:str) -> List[object]:
-        # Cria uma instância do contrato com os parâmetros de seleção
-        contract = DeliveryStepInputSelectContract(delivery_code=[delivery_code])
-        # Obtém os parâmetros do contrato e chama o método apropriado no controlador
-        params = contract.get_params()
-        result = self.delivery_step_controller.select(**params)
-        return result
+        # Cria uma instância do contrato com os parâmetros de seleção do post
+        post_service = PostService()
+        post_contract = PostInputSelectContract(delivery_code=delivery_code)
+        result_post_query = post_service._select_post(**post_contract.get_params())
+        post_id = result_post_query[0].id
+        # Cria uma instância do contrato de delivery step e coleta os steps pelo id do post
+        delivery_step_contract = DeliveryStepInputSelectContract(post_id=[post_id])
+        result_delivery_step_query = self.delivery_step_controller.select(**delivery_step_contract.get_params())
+        return result_delivery_step_query
