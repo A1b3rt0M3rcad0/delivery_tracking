@@ -1,0 +1,60 @@
+# Diretórios e arquivos específicos de Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Arquivos de configuração do ambiente virtual
+venv/
+env/
+.venv/
+ENV/
+*.env
+*.env.*
+
+# Arquivos de log
+*.log
+*.pot
+*.pyc
+
+# Arquivos de banco de dados
+*.sqlite3
+*.db
+
+# Diretórios de configurações de IDEs
+.idea/
+.vscode/
+*.swp
+
+# Arquivos e diretórios de cache
+.cache/
+*.egg-info/
+dist/
+build/
+
+# Arquivos de testes e relatórios de cobertura
+.coverage
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+htmlcov/
+*.hypothesis/
+
+# Arquivos de pacotes
+*.egg
+.eggs/
+*.whl
+
+# Arquivos de documentação
+docs/_build/
+
+# Arquivos do Flask
+instance/
+config.py
+.mypy_cache/
+
+# Arquivos relacionados ao Tailwind CSS (se aplicável)
+tailwind.config.js
+postcss.config.js
+node_modules/
