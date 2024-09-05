@@ -7,7 +7,7 @@ from typing import List, Dict, Any, Tuple
 class PostService:
 
     post_controller = PostController()
-    delivery_step_controller = DeliveryStepController()
+    
 
     def _create_post(self, delivery_code: str, addresse_name: str, full_address: str, created_at: date, finished: bool) -> Tuple[bool | date]:
         # Cria uma instância do contrato com os dados fornecidos
@@ -31,6 +31,10 @@ class PostService:
         result = self.post_controller.select(**params)
         return result
 
+class DeliveryStepService:
+
+    delivery_step_controller = DeliveryStepController()
+    
     def _create_delivery_step(self, delivery_steps:List[Dict[str, Any]]) -> List[bool]:
         # Cria a lista de contratos que serão adicionados
         contracts = []
