@@ -1,7 +1,11 @@
+# Arquivo de test
+_test_.py
+
 # Diretórios e arquivos específicos de Python
 __pycache__/
 *.py[cod]
 *.pyo
+
 
 # Arquivos de configuração do ambiente virtual
 venv/
