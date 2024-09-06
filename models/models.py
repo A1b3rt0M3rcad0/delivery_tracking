@@ -4,7 +4,14 @@ from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
-class Post(Base):
+class BaseMixin:
+    def __repr__(self):
+        cls = self.__class__
+        cls_name = cls.__name__
+        attrs = [f"{key}={value!r}" for key, value in vars(self).items() if not key.startswith('_')]
+        return f"<{cls_name}({', '.join(attrs)})>"
+
+class Post(Base, BaseMixin):
     __tablename__ = 'post'
 
     id = Column(Integer, primary_key=True)
@@ -18,7 +25,7 @@ class Post(Base):
     delivery_steps = relationship("DeliveryStep", back_populates="post")
 
 
-class DeliveryStep(Base):
+class DeliveryStep(Base, BaseMixin):
     __tablename__ = 'delivery_steps'
 
     id = Column(Integer, primary_key=True)
