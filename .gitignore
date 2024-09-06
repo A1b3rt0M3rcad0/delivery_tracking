@@ -55,7 +55,6 @@ docs/_build/
 
 # Arquivos do Flask
 instance/
-config.py
 .mypy_cache/
 
 # Arquivos relacionados ao Tailwind CSS (se aplicável)
