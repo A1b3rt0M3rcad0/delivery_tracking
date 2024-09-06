@@ -236,15 +236,15 @@ class DeliveryStepInputUpdateContract(BaseInputContract):
     """Classe para contratos de input para operações de atualização em controladores de DeliveryStep."""
 
     def __init__(self,
-                 post_id:Optional[List[int]] = None, 
-                 delivery_stage_name:Optional[List[str]] = None, 
-                 delivery_stage_description:Optional[List[str]] = None, 
-                 delivery_stage:Optional[List[int]] = None, 
-                 due_date_delivery_stage:Optional[List[int]] = None, 
-                 started_at:Optional[List[date]] = None, 
-                 finished_at:Optional[List[date]] = None, 
-                 finished:Optional[List[bool]] = None,
-                 filters: Optional[Dict[str, List[Any]]] = None) -> None:
+                 post_id:Optional[int] = None, 
+                 delivery_stage_name:Optional[str] = None, 
+                 delivery_stage_description:Optional[str] = None, 
+                 delivery_stage:Optional[int] = None, 
+                 due_date_delivery_stage:Optional[int] = None, 
+                 started_at:Optional[date] = None, 
+                 finished_at:Optional[date] = None, 
+                 finished:Optional[bool] = None,
+                 filters: Optional[Dict[str, Any]] = None) -> None:
         """
         Inicializa um contrato de input para atualização de registros.
 

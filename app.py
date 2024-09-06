@@ -1,40 +1,59 @@
-from services.services import PostService, DeliveryStepService
+from services.services import PostService, DeliveryStepService, MainService
 from datetime import date, timedelta
 
 
-post_service = PostService()
-delivery_step_service = DeliveryStepService()
-
-# post = post_service._create_post(
-#     'UIAHSDUHAIUSHD',
-#     'Orleans',
-#     'Calabouco aushdiuas',
-#     date.today(),
-#     False,
-# )
-
-# post = delivery_step_service._create_delivery_step(
-#     [{
-#         'post_id': 1,
-#         'delivery_stage_name': 'Separação',
-#         'delivery_stage_description': 'Tunel',
-#         'delivery_stage': 7,
-#         'due_date_delivery_stage': 3,
-#         'started_at': date.today(),
-#         'finished': False
+def main():
+    # Instancia o serviço principal
+    main_service = MainService()
     
-#     },
-#     {
-#         'post_id': 1,
-#         'delivery_stage_name': 'Separação',
-#         'delivery_stage_description': 'Tunel',
-#         'delivery_stage': 8,
-#         'due_date_delivery_stage': 5,
-#         'finished': False
+    # Dados para criar um post
+    post_data = {
+        'addresse_name': 'Endereço Exemplo',
+        'full_address': 'Rua das Flores, 123, Centro',
+        'created_at': date(2024, 9, 5),
+        'finished': False
+    }
     
-#     }]
-# )
+    # Dados para criar os passos de entrega
+    delivery_steps = [
+        {
+            'delivery_stage_name': 'Passo 1',
+            'delivery_stage': 0,
+            'due_date_delivery_stage': 1,
+            'delivery_stage_description': 'Inicio',
+            'finished': False,
+            'started_at': date.today(),
+        },
+        {
+            'delivery_stage_name': 'Passo 2',
+            'delivery_stage': 1,
+            'due_date_delivery_stage': 1,
+            'delivery_stage_description': 'Inicio',
+            'finished': False,
+        },
+    ]
+    
+    # Cria um post e passos de entrega
+    delivery_code, post_result, delivery_steps_result = main_service.create_post_with_delivery_steps(post_data, delivery_steps)
+    
+    if post_result:
+        print("Post criado com sucesso!")
+        print(f"Status dos passos de entrega: {delivery_steps_result}")
+    else:
+        print("Erro ao criar o post.")
+    
+    # Obtém o relatório completo
+    report = main_service.get_full_report(delivery_code)
+    
+    if report:
+        print("Relatório completo:")
+        print(report)
+    else:
+        print("Nenhum dado encontrado para o código de entrega fornecido.")
+    
+    # Verifica e atualiza o status dos passos de entrega
+    main_service.finished_delivery_steps_check_update(delivery_code)
+    print(f"Status atualizado para o código de entrega: {delivery_code}")
 
-t = delivery_step_service._select_delivery_steps('UIAHSDUHAIUSHD')
-
-print(t)
+if __name__ == "__main__":
+    main()
