@@ -1,0 +1,27 @@
+{% extends 'base/base_page.html' %}
+
+{% block content %}
+<section class="flex justify-center items-center ">
+    <div class="container relative w-screen h-[400px] bg-cover bg-no-repeat" style="background-image: url('{{ url_for('static', filename='images/bg_home.jpg') }}');">
+        <!-- Sobreposição escura -->
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <!-- Conteúdo sobre a sobreposição -->
+        <div class="relative z-10 flex items-center justify-center h-full">
+            <h1 class="text-white text-5xl">Delivery <br> Tracking</h1>
+        </div>
+    </div>
+</section>
+<section class="flex justify-center items-center pt-[-5px]">
+    <div class="container flex justify-center items-center px-5">
+        <div class="form-div bg-gray-500 w-screen py-2 my-4">
+            <form action="#">
+                <div class="flex flex-col items-center space-y-2">
+                    <label class="flex justify-center items-center text-center text-white text-2xl py-8" for="tracking_code">To track your order, enter your tracking code</label>
+                    <input class="py-2 px-4 rounded-md text-center mx-4" name="tracking_code" type="text" placeholder="Tracking Code">
+                    <input class="cursor-pointer w-24 px-8 py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-md" type="submit" value="Track" >
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
