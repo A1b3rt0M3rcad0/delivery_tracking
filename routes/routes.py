@@ -3,5 +3,6 @@ from views.views import *
 
 
 r = make_routes([
-    ['/', home]
+    ['/', home],
+    ['/contacts', tracking]
 ])

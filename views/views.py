@@ -3,3 +3,7 @@ from services.services import MainService
 
 def home():
     return render_template('home.html', page_title='Home')
+
+
+def tracking():
+    return 'Hello Contacts'

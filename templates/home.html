@@ -1,27 +1,85 @@
 {% extends 'base/base_page.html' %}
 
 {% block content %}
-<section class="flex justify-center items-center ">
-    <div class="container relative w-screen h-[400px] bg-cover bg-no-repeat" style="background-image: url('{{ url_for('static', filename='images/bg_home.jpg') }}');">
-        <!-- Sobreposição escura -->
+<div class="flex flex-col items-center justify-center mb-10 text-center">
+
+    <div class="w-screen h-screen relative bg-cover bg-center" style="background-image: url({{ url_for('static', filename='images/bg_home.jpg') }});">
+        
         <div class="absolute inset-0 bg-black opacity-50"></div>
-        <!-- Conteúdo sobre a sobreposição -->
+
         <div class="relative z-10 flex items-center justify-center h-full">
-            <h1 class="text-white text-5xl">Delivery <br> Tracking</h1>
+            <h2 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-wide text-center">
+                Track Any Package, Freight, and Shipment
+            </h2>
         </div>
     </div>
-</section>
-<section class="flex justify-center items-center pt-[-5px]">
-    <div class="container flex justify-center items-center px-5">
-        <div class="form-div bg-gray-500 w-screen py-2 my-4">
-            <form action="#">
-                <div class="flex flex-col items-center space-y-2">
-                    <label class="flex justify-center items-center text-center text-white text-2xl py-8" for="tracking_code">To track your order, enter your tracking code</label>
-                    <input class="py-2 px-4 rounded-md text-center mx-4" name="tracking_code" type="text" placeholder="Tracking Code">
-                    <input class="cursor-pointer w-24 px-8 py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-md" type="submit" value="Track" >
-                </div>
-            </form>
-        </div>
+
+    <div class="mt-4 max-w-full">
+        <h2 class="px-4 text-2xl">Track any package, freight and shipment</h2>
     </div>
-</section>
+    <div class="flex flex-col items-center justify-center mt-4 space-y-4">
+        <p class="px-4 text-center text-sm max-w-2xl">
+            Having bought in the online store always want to know where the package is now? To save time checking the sites of postal companies manually, I created "Parcels" website and mobile apps which will automatically check every relevant postal, courier, and logistics company website on your behalf.
+        </p>
+        <p class="px-4 text-center text-sm max-w-2xl">
+            To find out where your parcel is, you need to know only tracking number of your package.
+        </p>
+    </div>
+    <div class="mt-4 max-w-full">
+        <h2 class="text-2xl">What is a tracking number?</h2>
+    </div>
+    <div class="flex flex-col items-center justify-center mt-4 space-y-4">
+        <p class="px-4 text-center text-sm max-w-2xl">
+            Tracking number or tracking code is a unique number assigned to each package, which allows you to monitor the movement of the parcel between the countries or even inside one country.
+        </p>
+        <p class="px-4 text-center text-sm max-w-2xl">
+            Tracking numbers can be international or traceable only within the country of the sender.
+        </p>
+        <p class="px-4 text-center text-sm max-w-2xl">
+            The tracking number in the format of the Universal Postal Union looks like RA123456789CN, where the first 2 letters are the type of package and the last 2 letters are the code of the country of origin. Packages with such numbers can be tracked right until delivery.
+        </p>
+        <p class="px-4 text-center text-sm max-w-2xl">
+            Other shipments can be delivered by courier, transport and logistics companies, and how tracking codes look can vary a lot: CTAFT0000160477YQ, UPAAB000000251682107, AEL10105033654UA, SGADN143797855. Such packages are not always trackable in the recipient's country, and you'll have to wait for notification from the Post Office or a call from a courier company.
+        </p>
+    </div>
+
+    <div class="mt-4 max-w-full">
+        <h2 class="text-2xl">How to track a parcel from an online store?</h2>
+    </div>
+    <div class="flex flex-col items-center justify-center mt-4 space-y-4">
+        <p class="px-4 text-center text-sm max-w-2xl">
+            First of all, you should wait for the order to be shipped. When preparing to send your purchases, the seller reserves a track number from the delivery service, which starts to be tracked within 1-5 days after the order is transferred to the delivery service.
+        </p>
+        <p class="px-4 text-center text-sm max-w-2xl">
+            Remember that you can track the parcel only by tracking number, most often try to track using the order number, but these are two completely different numbers, and you can not track the parcel by order number. The exception is the ASOS store, and on our service you can track ASOS orders by order number.
+        </p>
+    </div>
+
+    <div class="mt-4 max-w-full">
+        <h2 class="text-2xl">Can't track package for a long time?</h2>
+    </div>
+    <div class="flex flex-col items-center justify-center mt-4 space-y-4">
+        <p class="px-4 text-center text-sm max-w-2xl">
+            Do not panic if the package is not trackable right after you've got the tracking number. Postal or courier company takes time to arrange the parcel, weigh, prepare customs documents, sort & forward package further along the route. You can start to sound the alarm already from the 7th day after receiving the tracking number, most likely the seller has not shipped parcel, and only reserved the tracking number.
+        </p>
+    </div>
+
+    <div class="mt-4 max-w-full">
+        <h2 class="text-2xl">Tracking eBay order</h2>
+    </div>
+    <div class="flex flex-col items-center justify-center mt-4 space-y-4">
+        <p class="px-4 text-center text-sm max-w-2xl">
+            eBay sellers use multiple delivery and postal companies depending on item price and selected shipping method. Whether it's SpeedPAK, Pitney Bowes, Global Shipping Program, China Post, Winit, Yanwen or any other shipping company we've got your back. Read our extensive guide to tracking eBay orders.
+        </p>
+    </div>
+
+    <div class="mt-4 max-w-full">
+        <h2 class="text-2xl">Delivery time</h2>
+    </div>
+    <div class="flex flex-col items-center justify-center mt-4 space-y-4">
+        <p class="px-4 text-center text-sm max-w-2xl">
+            Wondering how long it will take for your order to arrive to United States, UK, Canada, Australia or any other country? Wonder no more, with our state of the art delivery time estimation algorithm you'll always informed when to expect your parcel. We collect extensive delivery time statistics for each package going into each country and city and will use all of this data to get you most accurate estimated date of arrival.
+        </p>
+    </div>
+</div>
 {% endblock %}

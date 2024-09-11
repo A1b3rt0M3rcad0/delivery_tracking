@@ -22,24 +22,46 @@
     </style>
 </head>
 <body>
-    <header class="bg-gray-500 text-white">
-        <div class="container mx-auto flex justify-between items-center p-4">
+    <header class="bg-gradient-to-r from-gray-400 to-gray-700 text-white py-8">
+        <div class="container mx-auto flex flex-col items-center text-center space-y-4">
             <!-- Logo -->
-             <a href="{{ url_for('home') }}">
-                <div id="logo" href="/" class="w-24 h-24">
-                    <img src="{{ url_for('static', filename='images/fic_logistic_logo.png') }}" alt="logo">
-                </div>
-            </a>
+            <div class="flex items-center space-x-2">
+                <img src="{{ url_for('static', filename='images/fic_logistic_logo.png') }}" alt="Logo" class="w-8 h-8">
+                <span class="text-lg font-bold">FL Logistic</span>
+            </div>
+            
+            <!-- Título Principal -->
+            <h1 class="text-4xl font-semibold">Global Package Tracking</h1>
+            
+            <!-- Subtítulo -->
+            <p class="text-sm">
+                Track USPS, Canada Post, Royal Mail, DHL, China Post, Fedex, UPS, Amazon, Deutsche Post, AliExpress, Wish, Shopee
+            </p>
+    
+            <!-- Barra de Pesquisa -->
+            <div class="flex flex-col items-center justify-center mt-4">
+                <form class="flex max-lg:flex-col items-center justify-center" action="{{ url_for('tracking') }}">
+                    <input type="text" placeholder="Tracking number" class="w-40 max-lg:w-64 p-2 rounded-md border border-gray-300 focus:outline-none">
+                    <button class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M8 2a6 6 0 014.472 10.25l3.662 3.663a1 1 0 01-1.414 1.415l-3.663-3.662A6 6 0 118 2zM8 4a4 4 0 100 8 4 4 0 000-8z" />
+                        </svg>
+                        Track Package
+                    </button>
+                </form>
+            </div>
         </div>
     </header>
+    
 
     <main class="flex-grow">
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="bg-gray-500 text-white text-center py-4">
-        <div class="container mx-auto">
-            <p>&copy; 2024 Sua Empresa. Todos os direitos reservados.</p>
+    <footer class="bg-gradient-to-r from-gray-400 to-gray-700 text-white text-center py-4">
+        <div class="container mx-auto space-y-2">
+            <p class="text-xs">All logos, product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them. This site and the products and services offered on this site are not associated, affiliated, endorsed, or sponsored by any business listed on this page nor have they been reviewed tested or certified by any other company listed on this page.</p>
+            <p>&copy; 2014-2024 FL Logistic. all rights reserved.</p>
         </div>
     </footer>
 </body>
