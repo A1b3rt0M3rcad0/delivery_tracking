@@ -1,5 +1,5 @@
 from config.config import Config
-from routes.routes import *
+from routes.routes import r
 
 app = Config.app
 
