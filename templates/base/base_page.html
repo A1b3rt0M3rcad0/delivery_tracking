@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en-us">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
-    <title>{% block title %}{{ page_title }}{% endblock %}</title>
+    <title>FL Logistic | {% block title %}{{ page_title }}{% endblock %}</title>
     <style>
         /* Garantir que o footer fique sempre no fundo */
         html, body {
@@ -41,7 +41,7 @@
             <!-- Barra de Pesquisa -->
             <div class="flex flex-col items-center justify-center mt-4">
                 <form class="flex max-lg:flex-col items-center justify-center" action="{{ url_for('tracking') }}">
-                    <input type="text" placeholder="Tracking number" class="w-40 max-lg:w-64 p-2 rounded-md border border-gray-300 focus:outline-none">
+                    <input required type="text" name="tracking_code" placeholder="Tracking number" class="w-40 max-lg:w-64 p-2 rounded-md border border-gray-300 text-black">
                     <button class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 flex items-center">
                         <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M8 2a6 6 0 014.472 10.25l3.662 3.663a1 1 0 01-1.414 1.415l-3.663-3.662A6 6 0 118 2zM8 4a4 4 0 100 8 4 4 0 000-8z" />

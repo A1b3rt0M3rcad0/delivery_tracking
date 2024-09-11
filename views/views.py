@@ -6,4 +6,5 @@ def home():
 
 
 def tracking():
-    return 'Hello Contacts'
+    tracking_code = request.args['tracking_code']
+    return f'Hello {tracking_code}'
