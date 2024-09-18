@@ -10,7 +10,7 @@ class Route:
         self.app.add_url_rule(self.route, view_func=self.view)
 
 
-def make_routes(routes:List[List[str]]) -> None:
+def register_routes(routes:List[List[str]]) -> None:
 
     for route, view in routes:
         Route(Config.app, route, view)

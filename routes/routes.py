@@ -1,8 +1,8 @@
-from routes.__route import make_routes
+from routes.__route import register_routes
 from views.views import *
 
 
-r = make_routes([
+r = register_routes([
     ['/', home],
-    ['/contacts', tracking]
+    ['/tracking', tracking]
 ])
