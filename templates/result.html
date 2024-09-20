@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rastreamento de Entrega</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-4">
+    <div class="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-2xl font-bold mb-4">Rastreamento pelo destinatário</h2>
+        
+        <!-- Informações do Destinatário -->
+        <div class="mb-4">
+            <span class="font-semibold">Destinatário:</span> {{ context['post'][0]['addresse_name'] }}
+        </div>
+
+        <!-- Tabela de Etapas de Entrega -->
+        <table class="w-full border-collapse">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border p-2 text-left">N Fiscal/Coleta</th>
+                    <th class="border p-2 text-left">Unidade</th>
+                    <th class="border p-2 text-left">Data/Hora</th>
+                    <th class="border p-2 text-left">Situação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if context['delivery_steps'] %}
+                    <!-- Itera sobre os dados de delivery_steps -->
+                    {% for step in context['delivery_steps'] %}
+                    <tr class="bg-white">
+                        <td class="border p-2">{{ step['delivery_stage_name'] }}</td>
+                        <td class="border p-2">{{ step['delivery_stage_description'] }}</td>
+                        <td class="border p-2">{{ step['started_at'] }}</td>
+                        <td class="border p-2">
+                            {% if step['finished'] %}
+                                Finalizado
+                            {% else %}
+                                Em andamento
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr class="bg-white text-red-500">
+                        <td colspan="4" class="border p-2 text-center">
+                            Nenhuma informação encontrada para CNPJ e senha informados
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+        <div class="mt-4">
+            <a href="{{ url_for('home') }}" class="text-blue-500 hover:underline">Voltar</a>
+        </div>
+    </div>
+</body>
+</html>

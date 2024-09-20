@@ -4,5 +4,6 @@ from views.views import *
 
 r = register_routes([
     ['/', home],
-    ['/tracking', tracking]
+    ['/tracking', tracking],
+    ['/screening_result', screening_result]
 ])
